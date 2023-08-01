@@ -39,6 +39,7 @@ userController.post("/register", async (req, res) => {
 
 userController.post("/login", async (req, res) => {
   const { email, password } = req.body;
+  console.log(email,password);
   const user = await UserModel.findOne({ email });
   if (!user) {
     return res.send("Invalid Credentials").status(404);
@@ -55,7 +56,7 @@ userController.post("/login", async (req, res) => {
         result: result,
       });
     } else {
-      return res.status(400).send("Invalid Credentials");
+      return res.status(400).send({messege:"Invalid Credentials"});
     }
   });
 });

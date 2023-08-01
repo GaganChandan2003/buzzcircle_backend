@@ -16,7 +16,7 @@ app.get("/",(req,res)=>
 app.use("/user",userController);
 // app.use("/notes",notesController)
 
-app.listen(8080,async()=>
+app.listen(process.env.PORT||8080,async()=>
 {
     try{
         await connection;
@@ -25,5 +25,5 @@ app.listen(8080,async()=>
     catch{
         console.log("Disconnected");
     }
-    console.log("Server Started on port http://localhost:5000");
+    console.log("Server Started on port http://localhost:8080");
 })
